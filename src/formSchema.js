@@ -1,17 +1,28 @@
 import * as yup from 'yup';
 
-export default yup.object().shape({
-  name: yup.string()
-    .required('Name is required')
-    .min(2, 'Name nust be 2 characters or longer'),
-  size: yup.string()
-    .oneOf(['8 inch', '12 inch', '16 inch'], 'Size is required'),
-  toppings: yup.object().shape({
-    pepperoni: yup.boolean(),
-    sausage: yup.boolean(),
-    onions: yup.boolean(),
-    olives: yup.boolean(),
-    peppers: yup.boolean()
-  }),
-  instructions: yup.string()
-})
+// const schema = yup.object().shape({
+//   name: yup.string()
+//     .required('Name is required')
+//     .min(2, 'Name nust be 2 characters or longer'),
+//   size: yup.string()
+//     .oneOf(['8inch', '12inch', '16inch'], 'Size is required'),
+//   toppings: yup.object().shape({
+//     pepperoni: yup.boolean(),
+//     sausage: yup.boolean(),
+//     onions: yup.boolean(),
+//     olives: yup.boolean(),
+//     peppers: yup.boolean()
+//   }),
+//   instructions: yup.string()
+// })
+
+const schema = yup.object().shape({
+  name: yup
+    .string()
+    .trim()
+    .min(2, 'The name must be at least two characters long')
+    .required('Name is a required field'),
+  size: yup.string().ensure().required('Picking a pizza size is required'),
+  instructions: yup.string().trim(),
+});
+export default schema;

@@ -5,6 +5,7 @@ export default function Pizza(props) {
     values,
     submit,
     change,
+    checkbox,
     disabled,
     errors,
   } = props
@@ -20,6 +21,8 @@ export default function Pizza(props) {
     change(name, valueToUse)
   }
 
+  
+
  return (
    <form onSubmit={onSubmit} className='container'>
      <h1>Order Here!</h1>
@@ -34,15 +37,15 @@ export default function Pizza(props) {
      <div>
         <h2>Order Form</h2>
 
-        <label>Name:    </label>
+        <label>Name:    
         <input 
         value={values.name}
         onChange={onChange}
         name='name'
         type='text'
         />
-
-        <label>Pizza Size:       </label>
+</label>
+        <label>Pizza Size:       
         <select 
         onChange={onChange}
         value={values.size}
@@ -53,58 +56,61 @@ export default function Pizza(props) {
             <option value='12inch'>12 inch</option>
             <option value='16inch'>16 inch</option>
         </select>
-
+</label>
         <h3>Toppings:     </h3>
-        <label>Pepperoni     </label>
+        <label>Pepperoni     
         <input
         type='checkbox'
-        name='toppings'
-        value='pepperoni'
+        name='pepperoni'
         checked={values.toppings.pepperoni}
-        onChange={onChange}
+        onChange={checkbox}
         />
-        <label>Sausage    </label>
+        </label>
+        <label>Sausage    
         <input
         type='checkbox'
-        name='toppings'
-        value='sausage'
+        name='sausage'
+        
         checked={values.toppings.sausage}
-        onChange={onChange}
+        onChange={checkbox}
         />
-        <label>Onions     </label>
+        </label>
+        <label>Onions     
         <input
         type='checkbox'
-        name='toppings'
-        value='onions'
+        name='onions'
+        
         checked={values.toppings.onions}
-        onChange={onChange}
+        onChange={checkbox}
         />
-        <label>Olives    </label>
+        </label>
+        <label>Olives    
         <input
         type='checkbox'
-        name='toppings'
-        value='olives'
+        name='olives'
+        
         checked={values.toppings.olives}
-        onChange={onChange}
+        onChange={checkbox}
         />
-        <label>Pepppers     </label>
+        </label>
+        <label>Peppers     
         <input
         type='checkbox'
-        name='toppings'
-        value='peppers'
+        name='peppers'
+        
         checked={values.toppings.peppers}
-        onChange={onChange}
+        onChange={checkbox}
         />
-
+        </label>
         <h3>Any more info for us?</h3>
-        <label>Special Instructions:    </label>
+        <label>Special Instructions:    
         <input 
         value={values.instructions}
         onChange={onChange}
         name='instructions'
         type='text'
         />
-
+</label>
 
 
 

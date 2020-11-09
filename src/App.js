@@ -14,7 +14,7 @@ const initialFormValues = {
   toppings: {
     pepperoni: false,
     sausage: false,
-    onion: false,
+    onions: false,
     olives: false,
     peppers: false
   },
@@ -35,12 +35,13 @@ const App = () => {
   const [disabled, setDisabled] = useState(initialDisabled)
 
   const postNewOrder = newOrder => {
-    axios.post('http://reqres.in/api/users', newOrder)
+    axios.post('https://reqres.in/api/users', newOrder)
       .then(response => {
-        setOrders([...orders, response.data])
+        console.log(response)
+        setOrders([response.data, ...orders])
       })
       .catch(error => {
-        debugger
+        // debugger
         console.log(error)
       })
       .finally(() => {
@@ -72,6 +73,17 @@ const App = () => {
     setFormValues({
       ...formValues, 
       [name]: value
+    })
+  }
+
+  const checkboxChange = (event) => {
+    const { name, checked } = event.target
+    setFormValues({
+      ...formValues, 
+      toppings: {
+        ...formValues.toppings, 
+        [name]: checked
+      }
     })
   }
 
@@ -117,15 +129,21 @@ const App = () => {
           values={formValues}
           change={inputChange}
           submit={formSubmit}
+          checkbox={checkboxChange}
           disabled={disabled}
           errors={formErrors}
           />
           {
             orders.map((order, index) => {
+              let toppingList = Object.keys(order.toppings);
+  let chosenToppings = toppingList.filter(function (picked) {
+    return order.toppings[picked];
+  });
+
               return <div key={index}>
                       <h2>{order.name}</h2>
                       <p>{order.size}</p>
-                      <p>{order.toppings}</p>
+                      <p>{chosenToppings}</p>
                       <p>{order.instructions}</p>
                       </div>
             })
