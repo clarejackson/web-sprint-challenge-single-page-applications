@@ -50,6 +50,21 @@ const App = () => {
 
   const validate = (name, value) => {
     //for yup schema
+    yup
+      .reach(schema, name)
+      .validate(value)
+      .then(valid => {
+        setFormErrors({
+          ...formErrors,
+          [name]: ""
+        })
+      })
+      .catch(error => {
+        setFormErrors({
+          ...formErrors,
+          [name]: error.errors
+        })
+      })
   }
 
   const inputChange = (name, value) => {

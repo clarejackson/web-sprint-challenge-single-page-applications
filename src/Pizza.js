@@ -21,7 +21,7 @@ export default function Pizza(props) {
   }
 
  return (
-   <form onSubmit={onSubmit}>
+   <form onSubmit={onSubmit} className='container'>
      <h1>Order Here!</h1>
 
      <button disabled={disabled}>Add to Order</button>
@@ -57,42 +57,42 @@ export default function Pizza(props) {
         <h3>Toppings:     </h3>
         <label>Pepperoni     </label>
         <input
-        type='radio'
+        type='checkbox'
         name='toppings'
         value='pepperoni'
-        checked={values.toppings === 'pepperoni'}
+        checked={values.toppings.pepperoni}
         onChange={onChange}
         />
         <label>Sausage    </label>
         <input
-        type='radio'
+        type='checkbox'
         name='toppings'
         value='sausage'
-        checked={values.toppings === 'sausage'}
+        checked={values.toppings.sausage}
         onChange={onChange}
         />
         <label>Onions     </label>
         <input
-        type='radio'
+        type='checkbox'
         name='toppings'
         value='onions'
-        checked={values.toppings === 'onions'}
+        checked={values.toppings.onions}
         onChange={onChange}
         />
         <label>Olives    </label>
         <input
-        type='radio'
+        type='checkbox'
         name='toppings'
         value='olives'
-        checked={values.toppings === 'olives'}
+        checked={values.toppings.olives}
         onChange={onChange}
         />
         <label>Pepppers     </label>
         <input
-        type='radio'
+        type='checkbox'
         name='toppings'
         value='peppers'
-        checked={values.toppings === 'peppers'}
+        checked={values.toppings.peppers}
         onChange={onChange}
         />
 
