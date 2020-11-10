@@ -1,21 +1,5 @@
 import * as yup from 'yup';
 
-// const schema = yup.object().shape({
-//   name: yup.string()
-//     .required('Name is required')
-//     .min(2, 'Name nust be 2 characters or longer'),
-//   size: yup.string()
-//     .oneOf(['8inch', '12inch', '16inch'], 'Size is required'),
-//   toppings: yup.object().shape({
-//     pepperoni: yup.boolean(),
-//     sausage: yup.boolean(),
-//     onions: yup.boolean(),
-//     olives: yup.boolean(),
-//     peppers: yup.boolean()
-//   }),
-//   instructions: yup.string()
-// })
-
 const schema = yup.object().shape({
   name: yup
     .string()
